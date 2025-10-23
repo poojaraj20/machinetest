@@ -10,9 +10,12 @@ function Home() {
   const dispatch = useDispatch();
   const { items, loading } = useSelector(state => state.products);
 
-  useEffect(() => {
+ useEffect(() => {
+  if (items.length === 0) {
     dispatch(fetchProducts());
-  }, [dispatch]);
+  }
+}, [dispatch, items.length]);
+
 
   if (loading) return <Loader />;
 

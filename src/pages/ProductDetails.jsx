@@ -18,12 +18,12 @@ const ProductDetails = () => {
     return <p className="text-center my-5">Product not found.</p>;
   }
 
-  const handleDelete = () => {
-    if (window.confirm("Are you sure you want to delete this product?")) {
-      dispatch(deleteProduct(product.id));
-      navigate("/"); 
-    }
-  };
+const handleDelete = () => {
+  if (window.confirm("Are you sure you want to delete this product?")) {
+    dispatch(deleteProduct(Number(product.id))); // Convert to number
+    navigate("/");
+  }
+};
 
   return (
     <>

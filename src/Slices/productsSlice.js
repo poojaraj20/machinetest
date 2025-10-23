@@ -10,6 +10,7 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
+
 const productsSlice = createSlice({
   name: "products",
   initialState: {
@@ -17,17 +18,21 @@ const productsSlice = createSlice({
     loading: false,
     error: null,
   },
+  
   reducers: {
-    addProduct: (state, action) => {
-      state.items.push(action.payload);
-    },
-    updateProduct: (state, action) => {
-      const index = state.items.findIndex(p => p.id === action.payload.id);
-      if (index !== -1) state.items[index] = action.payload;
-    },
-    deleteProduct: (state, action) => {
-      state.items = state.items.filter(p => p.id !== action.payload);
-    },
+addProduct: (state, action) => {
+  state.items.push(action.payload);
+  localStorage.setItem("products", JSON.stringify(state.items));
+},
+updateProduct: (state, action) => {
+  const index = state.items.findIndex(p => p.id === action.payload.id);
+  if (index !== -1) state.items[index] = action.payload;
+  localStorage.setItem("products", JSON.stringify(state.items));
+},
+deleteProduct: (state, action) => {
+  state.items = state.items.filter(p => p.id !== action.payload);
+  localStorage.setItem("products", JSON.stringify(state.items));
+},
   },
   extraReducers: builder => {
     builder
