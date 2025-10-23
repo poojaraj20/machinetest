@@ -6,7 +6,7 @@ import { deleteProduct } from "../Slices/productsSlice";
 import Header from "../components/Header";
 
 const ProductDetails = () => {
-  const { id } = useParams(); 
+  const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -18,12 +18,12 @@ const ProductDetails = () => {
     return <p className="text-center my-5">Product not found.</p>;
   }
 
-const handleDelete = () => {
-  if (window.confirm("Are you sure you want to delete this product?")) {
-    dispatch(deleteProduct(Number(product.id))); // Convert to number
-    navigate("/");
-  }
-};
+  const handleDelete = () => {
+    if (window.confirm("DO you want to delete this product?")) {
+      dispatch(deleteProduct(Number(product.id)));
+      navigate("/");
+    }
+  };
 
   return (
     <>

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateProduct ,fetchProducts} from "../Slices/productsSlice";
+import { updateProduct, fetchProducts } from "../Slices/productsSlice";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
@@ -24,7 +24,7 @@ const EditProduct = () => {
     category: "",
   });
 
-  const [errors, setErrors] = useState({}); 
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     if (product) {
@@ -36,7 +36,7 @@ const EditProduct = () => {
     return <p className="text-center my-5">Product not found.</p>;
   }
 
-  
+
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -63,10 +63,10 @@ const EditProduct = () => {
       return;
     }
 
-dispatch(updateProduct(form)); 
+    dispatch(updateProduct(form));
 
-alert("Product updated Successfully ......")
-navigate(`/`);
+    alert("Product updated Successfully ......")
+    navigate(`/`);
 
   };
 

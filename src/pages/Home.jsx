@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../Slices/productsSlice";
 import ProductCard from "../components/ProductCard";
-import Loader from "../components/Loader";
+
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 
@@ -10,14 +10,14 @@ function Home() {
   const dispatch = useDispatch();
   const { items, loading } = useSelector(state => state.products);
 
- useEffect(() => {
-  if (items.length === 0) {
-    dispatch(fetchProducts());
-  }
-}, [dispatch, items.length]);
+  useEffect(() => {
+    if (items.length === 0) {
+      dispatch(fetchProducts());
+    }
+  }, [dispatch, items.length]);
 
 
-  if (loading) return <Loader />;
+
 
   return (
     <>

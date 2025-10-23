@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addProduct } from "../Slices/productsSlice"; 
+import { addProduct } from "../Slices/productsSlice";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
@@ -17,7 +17,7 @@ const AddProduct = () => {
     category: "",
   });
 
-  const [errors, setErrors] = useState({}); 
+  const [errors, setErrors] = useState({});
 
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -43,9 +43,9 @@ const AddProduct = () => {
       return;
     }
 
-  
-    dispatch(addProduct({ ...form, id: Date.now() })); 
-    navigate("/"); 
+
+    dispatch(addProduct({ ...form, id: Date.now() }));
+    navigate("/");
   };
 
   return (
